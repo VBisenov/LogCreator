@@ -16,7 +16,7 @@ public class LogPost {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+            conn.setRequestProperty("Content-Type", "application/json;charset=windows-1251");
 
             String input = "{ \"message\" : \""+log.getMessage()+"\", " +
                     "\"dateTime\" : \""+log.getDateTime()+"\", " +
@@ -28,7 +28,7 @@ public class LogPost {
 
             BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
             String output;
-            System.out.println("Output from application: ");
+            System.out.println("Output: ");
             while ((output = br.readLine()) != null){
                 System.out.println(output);
             }

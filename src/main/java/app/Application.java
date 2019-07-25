@@ -16,14 +16,15 @@ public class Application {
             try {
                 String message = bufferedReader.readLine();
 
-
-                Log log = new Log();
-                log.setDateTime(LocalDateTime.now());
-                log.setService("Temporary service");
-                log.setMessage(message);
-                LogPost.sendRequest(log);
-
-                Thread.sleep(10000);
+                if (!message.equals("")) {
+                    Log log = new Log();
+                    log.setDateTime(LocalDateTime.now());
+                    log.setService("Temporary service");
+                    log.setMessage(message);
+                    System.out.println(message);
+                    LogPost.sendRequest(log);
+                    Thread.sleep(1000);
+                } else System.out.println("Empty string");
             } catch (InterruptedException | IOException e) {
                 e.printStackTrace();
             }
@@ -34,7 +35,7 @@ public class Application {
         FileReader fr = null;
         BufferedReader bf = null;
         try {
-            fr = new FileReader("a_single_man.txt");
+            fr = new FileReader("Carrie.txt");
             bf = new BufferedReader(fr);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
