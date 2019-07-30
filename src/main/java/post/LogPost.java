@@ -12,14 +12,14 @@ import java.net.URL;
 public class LogPost {
     public static void sendRequest(Log log) {
         try {
-            URL url = new URL("https://enw61mrrkrx6f.x.pipedream.net");
+            URL url = new URL("http://localhost:88/log");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Content-Type", "application/json;charset=windows-1251");
 
             String input = "{ \"message\" : \""+log.getMessage()+"\", " +
-                    "\"dateTime\" : \""+log.getDateTime()+"\", " +
+//                    "\"dateTime\" : \""+log.getDateTime()+"\", " +
                     "\"source\" : \""+log.getService()+"\" }";
 
             OutputStream os = conn.getOutputStream();

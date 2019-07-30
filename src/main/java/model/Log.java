@@ -1,16 +1,18 @@
 package model;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Log {
     private String message;
-    private LocalDateTime dateTime;
+    private Time dateTime = new Time(new Date().getTime());
     private String service;
 
     public Log() {
     }
 
-    public Log(String message, LocalDateTime dateTime, String service) {
+    public Log(String message, Time dateTime, String service) {
         this.message = message;
         this.dateTime = dateTime;
         this.service = service;
@@ -21,14 +23,14 @@ public class Log {
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.message = dateTime.toString() + " [" + service + "] " + message;
     }
 
-    public LocalDateTime getDateTime() {
+    public Time getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Time dateTime) {
         this.dateTime = dateTime;
     }
 

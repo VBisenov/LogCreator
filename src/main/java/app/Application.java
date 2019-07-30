@@ -1,15 +1,21 @@
 package app;
 
 import model.Log;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import post.LogPost;
 
+import java.sql.Time;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Application {
+
+    static final Logger logLogger = LogManager.getRootLogger();
+
     public static void main(String[] args) {
         BufferedReader bufferedReader = getBufferedReader();
         while(true){
@@ -18,14 +24,16 @@ public class Application {
 
                 if (!message.equals("")) {
                     Log log = new Log();
-                    log.setDateTime(LocalDateTime.now());
+                    log.setDateTime(new Time(new Date().getTime()));
                     log.setService("Temporary service");
                     log.setMessage(message);
-                    System.out.println(message);
+                    logLogger.info(message);
                     LogPost.sendRequest(log);
                     Thread.sleep(1000);
                 } else System.out.println("Empty string");
-            } catch (InterruptedException | IOException e) {
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
