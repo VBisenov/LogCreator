@@ -1,31 +1,40 @@
 package app;
 
 import model.Log;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import post.LogPost;
 
+import java.sql.Time;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Application {
+
+    static final Logger logger = LoggerFactory.getLogger(Application.class);
+
     public static void main(String[] args) {
         BufferedReader bufferedReader = getBufferedReader();
+        int delay = 1000;
         while(true){
             try {
                 String message = bufferedReader.readLine();
 
                 if (!message.equals("")) {
                     Log log = new Log();
-                    log.setDateTime(LocalDateTime.now());
+                    log.setDateTime(System.currentTimeMillis());
                     log.setService("Temporary service");
                     log.setMessage(message);
-                    System.out.println(message);
+                    logger.info(log+" shipped");
                     LogPost.sendRequest(log);
-                    Thread.sleep(1000);
+                    Thread.sleep(delay);
                 } else System.out.println("Empty string");
-            } catch (InterruptedException | IOException e) {
+            } catch (IOException | InterruptedException e) {
+                logger.error("Unknown error", e);
                 e.printStackTrace();
             }
         }

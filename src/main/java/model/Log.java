@@ -1,16 +1,18 @@
 package model;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Log {
     private String message;
-    private LocalDateTime dateTime;
+    private Long dateTime;
     private String service;
 
     public Log() {
     }
 
-    public Log(String message, LocalDateTime dateTime, String service) {
+    public Log(String message, Long dateTime, String service) {
         this.message = message;
         this.dateTime = dateTime;
         this.service = service;
@@ -24,11 +26,11 @@ public class Log {
         this.message = message;
     }
 
-    public LocalDateTime getDateTime() {
+    public Long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(LocalDateTime dateTime) {
+    public void setDateTime(Long dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -38,5 +40,14 @@ public class Log {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "message='" + message + '\'' +
+                ", dateTime=" + dateTime +
+                ", service='" + service + '\'' +
+                '}';
     }
 }
