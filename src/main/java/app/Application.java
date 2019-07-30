@@ -7,7 +7,6 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class Application {
     public static void main(String[] args) {
@@ -18,7 +17,7 @@ public class Application {
 
                 if (!message.equals("")) {
                     Log log = new Log();
-                    log.setDateTime(LocalDateTime.now());
+                    log.setDateTime(System.currentTimeMillis());
                     log.setService("Temporary service");
                     log.setMessage(message);
                     System.out.println(message);

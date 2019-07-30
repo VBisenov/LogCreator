@@ -12,7 +12,7 @@ import java.net.URL;
 public class LogPost {
     public static void sendRequest(Log log) {
         try {
-            URL url = new URL("https://enw61mrrkrx6f.x.pipedream.net");
+            URL url = new URL("http://localhost:88/log");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
