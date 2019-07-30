@@ -19,7 +19,7 @@ public class LogPost {
             conn.setRequestProperty("Content-Type", "application/json;charset=windows-1251");
 
             String input = "{ \"message\" : \""+log.getMessage()+"\", " +
-                    "\"dateTime\" : \""+log.getDateTime()+"\", " +
+//                    "\"dateTime\" : \""+log.getDateTime()+"\", " +
                     "\"source\" : \""+log.getService()+"\" }";
 
             OutputStream os = conn.getOutputStream();

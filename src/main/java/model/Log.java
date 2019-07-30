@@ -4,13 +4,13 @@ import java.time.LocalDateTime;
 
 public class Log {
     private String message;
-    private Long dateTime;
+    private LocalDateTime dateTime;
     private String service;
 
     public Log() {
     }
 
-    public Log(String message, Long dateTime, String service) {
+    public Log(String message, LocalDateTime dateTime, String service) {
         this.message = message;
         this.dateTime = dateTime;
         this.service = service;
@@ -24,11 +24,11 @@ public class Log {
         this.message = message;
     }
 
-    public Long getDateTime() {
+    public LocalDateTime getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Long dateTime) {
+    public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
