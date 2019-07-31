@@ -32,7 +32,7 @@ public class Application {
                     logger.info(log+" shipped");
                     LogPost.sendRequest(log);
                     Thread.sleep(delay);
-                } else System.out.println("Empty string");
+                }
             } catch (IOException | InterruptedException e) {
                 logger.error("Unknown error", e);
                 e.printStackTrace();
