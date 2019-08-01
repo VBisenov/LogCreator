@@ -6,13 +6,13 @@ import java.util.Date;
 
 public class Log {
     private String message;
-    private Time dateTime = new Time(new Date().getTime());
+    private Long dateTime ;
     private String service;
 
     public Log() {
     }
 
-    public Log(String message, Time dateTime, String service) {
+    public Log(String message, Long dateTime, String service) {
         this.message = message;
         this.dateTime = dateTime;
         this.service = service;
@@ -26,11 +26,11 @@ public class Log {
         this.message = dateTime.toString() + " [" + service + "] " + message;
     }
 
-    public Time getDateTime() {
+    public Long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Time dateTime) {
+    public void setDateTime(Long dateTime) {
         this.dateTime = dateTime;
     }
 
