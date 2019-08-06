@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class Log {
     private String message;
-    private Long dateTime;
+    private Long dateTime ;
     private String service;
 
     public Log() {
