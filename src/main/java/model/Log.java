@@ -1,6 +1,8 @@
 package model;
 
+import java.sql.Time;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class Log {
     private String message;
@@ -38,5 +40,14 @@ public class Log {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "message='" + message + '\'' +
+                ", dateTime=" + dateTime +
+                ", service='" + service + '\'' +
+                '}';
     }
 }
