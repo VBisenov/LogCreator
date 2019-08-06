@@ -1,8 +1,9 @@
 package app;
 
 import model.Log;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import post.LogPost;
 
 import java.sql.Time;
@@ -19,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Application {
 
-    static final Logger logLogger = LogManager.getRootLogger();
+    static final Logger logger = LoggerFactory.getLogger(Application.class);
 
     public static void main(String[] args) {
 

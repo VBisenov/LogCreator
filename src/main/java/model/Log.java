@@ -23,7 +23,7 @@ public class Log {
     }
 
     public void setMessage(String message) {
-        this.message = dateTime.toString() + " [" + service + "] " + message;
+        this.message = message;
     }
 
     public Long getDateTime() {
@@ -40,5 +40,14 @@ public class Log {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return "Log{" +
+                "message='" + message + '\'' +
+                ", dateTime=" + dateTime +
+                ", service='" + service + '\'' +
+                '}';
     }
 }
